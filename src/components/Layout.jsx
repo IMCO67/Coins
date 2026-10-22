@@ -25,6 +25,9 @@ import { About } from './About';
 import { Detail } from './Detail';
 import {useContext} from 'react';
 import {ContextAuthor} from '../context/ContextAuthor';
+import { FavoriteContext } from '../context/FavoriteContext';
+import { useFavorite } from '../context/FavoriteProvider';
+import { useState } from 'react';
 
 const drawerWidth = 240;
 
@@ -162,6 +165,19 @@ const [open, setOpen] = React.useState(false);
                   <MailIcon />
                 </ListItemIcon>
                 <ListItemText primary="About" />
+              </ListItemButton>
+            </ListItem>
+         
+        </List>
+        <Divider />
+        <List>
+          
+            <ListItem disablePadding>
+              <ListItemButton onClick = {() => navigate('/favorites')}>
+                <ListItemIcon>
+                  <MailIcon />
+                </ListItemIcon>
+                <ListItemText primary="Favorites" />
               </ListItemButton>
             </ListItem>
          

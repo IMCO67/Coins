@@ -47,14 +47,14 @@ export const Home = () => {
       <Typography variant="h4" component="h1" gutterBottom textAlign="center" fontWeight="bold" color="primary">
         Mercado de Criptomonedas
       </Typography>
-      
+
       <Grid container spacing={3} sx={{ mt: 1 }}>
         {coins.map((coin) => (
           <Grid item xs={12} sm={6} md={4} lg={3} key={coin.id}>
-            <Card 
-              sx={{ 
-                height: '100%', 
-                display: 'flex', 
+            <Card
+              sx={{
+                height: '100%',
+                display: 'flex',
                 flexDirection: 'column',
                 transition: 'transform 0.2s, box-shadow 0.2s',
                 '&:hover': {
@@ -63,7 +63,7 @@ export const Home = () => {
                 }
               }}
             >
-              <CardActionArea 
+              <CardActionArea
                 onClick={() => navigate("/detail/" + coin.id)}
                 sx={{ height: '100%', p: 2 }}
               >
@@ -85,6 +85,17 @@ export const Home = () => {
                   <Typography variant="h6" color="success.main" fontWeight="bold">
                     ${coin.current_price?.toLocaleString()} USD
                   </Typography>
+
+
+                  <button
+                    onClick={() => addToFavorite(coin.id)}
+                    className='bg-blue-600 hover:bg-blue-700 text-white font-semibold py-1 px-3 rounded cursor-pointer'
+                    disabled={coin.favorite === 0}
+                  >
+                    {coin.favorite ? 'Quitar de favoritos' : 'Agregar a favoritos'}
+                  </button>
+                  
+
                 </CardContent>
               </CardActionArea>
             </Card>
